@@ -38,7 +38,7 @@ def build_vectorstore(splits):
 # ----------------- parent setup function (traced) -----------------
 @traceable(name="setup_pipeline", tags=["setup"])
 def setup_pipeline(pdf_path: str, chunk_size=1000, chunk_overlap=150):
-    # ✅ These three steps are “clubbed” under this parent function
+    # ✅ These three steps are "clubbed" under this parent function
     docs = load_pdf(pdf_path)
     splits = split_documents(docs, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     vs = build_vectorstore(splits)

@@ -1,4 +1,4 @@
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.tools import tool
 import requests
 from langchain_community.tools import DuckDuckGoSearchRun
@@ -21,7 +21,7 @@ def get_weather_data(city: str) -> str:
 
   return response.json()
 
-llm = ChatOpenAI()
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 # Step 2: Pull the ReAct prompt from LangChain Hub
 prompt = hub.pull("hwchase17/react")  # pulls the standard ReAct agent prompt
